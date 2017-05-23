@@ -1,0 +1,187 @@
+<%= form_with(model: ficha, local: true) do |form| %>
+  <% if ficha.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ficha.errors.count, "error") %> prohibited this ficha from being saved:</h2>
+
+      <ul>
+      <% ficha.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :medicamentoControlado %>
+    <%= form.check_box :medicamentoControlado, id: :ficha_medicamentoControlado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :medicamentoControladoDescricao %>
+    <%= form.text_field :medicamentoControladoDescricao, id: :ficha_medicamentoControladoDescricao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alergiaMedicamento %>
+    <%= form.check_box :alergiaMedicamento, id: :ficha_alergiaMedicamento %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alergiaMedicamentoDescricao %>
+    <%= form.text_field :alergiaMedicamentoDescricao, id: :ficha_alergiaMedicamentoDescricao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :medicamentoDorFebre %>
+    <%= form.text_field :medicamentoDorFebre, id: :ficha_medicamentoDorFebre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alergiaInsetos %>
+    <%= form.check_box :alergiaInsetos, id: :ficha_alergiaInsetos %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alergiaInsetosDescricao %>
+    <%= form.text_field :alergiaInsetosDescricao, id: :ficha_alergiaInsetosDescricao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alergiaInsetosMedicamentos %>
+    <%= form.text_field :alergiaInsetosMedicamentos, id: :ficha_alergiaInsetosMedicamentos %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nauseasVomitos %>
+    <%= form.check_box :nauseasVomitos, id: :ficha_nauseasVomitos %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nauseasVomitosDescricao %>
+    <%= form.text_field :nauseasVomitosDescricao, id: :ficha_nauseasVomitosDescricao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alergiaAlimentos %>
+    <%= form.check_box :alergiaAlimentos, id: :ficha_alergiaAlimentos %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alergiaAlimentosDescricao %>
+    <%= form.text_field :alergiaAlimentosDescricao, id: :ficha_alergiaAlimentosDescricao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vacinas %>
+    <%= form.check_box :vacinas, id: :ficha_vacinas %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vacinasDescricao %>
+    <%= form.text_field :vacinasDescricao, id: :ficha_vacinasDescricao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :convenio %>
+    <%= form.check_box :convenio, id: :ficha_convenio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :convenioNome %>
+    <%= form.text_field :convenioNome, id: :ficha_convenioNome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :convenioNumero %>
+    <%= form.text_field :convenioNumero, id: :ficha_convenioNumero %>
+  </div>
+
+  <div class="field">
+    <%= form.label :convenioHospitais %>
+    <%= form.text_field :convenioHospitais, id: :ficha_convenioHospitais %>
+  </div>
+
+  <div class="field">
+    <%= form.label :autorizaHospital %>
+    <%= form.check_box :autorizaHospital, id: :ficha_autorizaHospital %>
+  </div>
+
+  <div class="field">
+    <%= form.label :modificacaoSaude %>
+    <%= form.check_box :modificacaoSaude, id: :ficha_modificacaoSaude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :modificacaoSaudeDescricao %>
+    <%= form.text_field :modificacaoSaudeDescricao, id: :ficha_modificacaoSaudeDescricao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tratamento %>
+    <%= form.check_box :tratamento, id: :ficha_tratamento %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tratamentoDescricao %>
+    <%= form.text_field :tratamentoDescricao, id: :ficha_tratamentoDescricao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alteracaoSaude %>
+    <%= form.check_box :alteracaoSaude, id: :ficha_alteracaoSaude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alteracaoSaudeDescricao %>
+    <%= form.text_field :alteracaoSaudeDescricao, id: :ficha_alteracaoSaudeDescricao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :diabetico %>
+    <%= form.check_box :diabetico, id: :ficha_diabetico %>
+  </div>
+
+  <div class="field">
+    <%= form.label :usoSoroCaseiro %>
+    <%= form.check_box :usoSoroCaseiro, id: :ficha_usoSoroCaseiro %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alergiaBandaidEsparadrapo %>
+    <%= form.check_box :alergiaBandaidEsparadrapo, id: :ficha_alergiaBandaidEsparadrapo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bandaidEsparadrapo %>
+    <%= form.check_box :bandaidEsparadrapo, id: :ficha_bandaidEsparadrapo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :autorizaBanho %>
+    <%= form.check_box :autorizaBanho, id: :ficha_autorizaBanho %>
+  </div>
+
+  <div class="field">
+    <%= form.label :historicoDoencasContagiosas %>
+    <%= form.check_box :historicoDoencasContagiosas, id: :ficha_historicoDoencasContagiosas %>
+  </div>
+
+  <div class="field">
+    <%= form.label :historicoDoencasContagiosasDescricao %>
+    <%= form.text_field :historicoDoencasContagiosasDescricao, id: :ficha_historicoDoencasContagiosasDescricao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :medicamentosAutorizados %>
+    <%= form.text_field :medicamentosAutorizados, id: :ficha_medicamentosAutorizados %>
+  </div>
+
+  <div class="field">
+    <%= form.label :observacoes %>
+    <%= form.text_field :observacoes, id: :ficha_observacoes %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

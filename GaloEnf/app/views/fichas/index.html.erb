@@ -1,0 +1,93 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fichas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Medicamentocontrolado</th>
+      <th>Medicamentocontroladodescricao</th>
+      <th>Alergiamedicamento</th>
+      <th>Alergiamedicamentodescricao</th>
+      <th>Medicamentodorfebre</th>
+      <th>Alergiainsetos</th>
+      <th>Alergiainsetosdescricao</th>
+      <th>Alergiainsetosmedicamentos</th>
+      <th>Nauseasvomitos</th>
+      <th>Nauseasvomitosdescricao</th>
+      <th>Alergiaalimentos</th>
+      <th>Alergiaalimentosdescricao</th>
+      <th>Vacinas</th>
+      <th>Vacinasdescricao</th>
+      <th>Convenio</th>
+      <th>Convenionome</th>
+      <th>Convenionumero</th>
+      <th>Conveniohospitais</th>
+      <th>Autorizahospital</th>
+      <th>Modificacaosaude</th>
+      <th>Modificacaosaudedescricao</th>
+      <th>Tratamento</th>
+      <th>Tratamentodescricao</th>
+      <th>Alteracaosaude</th>
+      <th>Alteracaosaudedescricao</th>
+      <th>Diabetico</th>
+      <th>Usosorocaseiro</th>
+      <th>Alergiabandaidesparadrapo</th>
+      <th>Bandaidesparadrapo</th>
+      <th>Autorizabanho</th>
+      <th>Historicodoencascontagiosas</th>
+      <th>Historicodoencascontagiosasdescricao</th>
+      <th>Medicamentosautorizados</th>
+      <th>Observacoes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fichas.each do |ficha| %>
+      <tr>
+        <td><%= ficha.medicamentoControlado %></td>
+        <td><%= ficha.medicamentoControladoDescricao %></td>
+        <td><%= ficha.alergiaMedicamento %></td>
+        <td><%= ficha.alergiaMedicamentoDescricao %></td>
+        <td><%= ficha.medicamentoDorFebre %></td>
+        <td><%= ficha.alergiaInsetos %></td>
+        <td><%= ficha.alergiaInsetosDescricao %></td>
+        <td><%= ficha.alergiaInsetosMedicamentos %></td>
+        <td><%= ficha.nauseasVomitos %></td>
+        <td><%= ficha.nauseasVomitosDescricao %></td>
+        <td><%= ficha.alergiaAlimentos %></td>
+        <td><%= ficha.alergiaAlimentosDescricao %></td>
+        <td><%= ficha.vacinas %></td>
+        <td><%= ficha.vacinasDescricao %></td>
+        <td><%= ficha.convenio %></td>
+        <td><%= ficha.convenioNome %></td>
+        <td><%= ficha.convenioNumero %></td>
+        <td><%= ficha.convenioHospitais %></td>
+        <td><%= ficha.autorizaHospital %></td>
+        <td><%= ficha.modificacaoSaude %></td>
+        <td><%= ficha.modificacaoSaudeDescricao %></td>
+        <td><%= ficha.tratamento %></td>
+        <td><%= ficha.tratamentoDescricao %></td>
+        <td><%= ficha.alteracaoSaude %></td>
+        <td><%= ficha.alteracaoSaudeDescricao %></td>
+        <td><%= ficha.diabetico %></td>
+        <td><%= ficha.usoSoroCaseiro %></td>
+        <td><%= ficha.alergiaBandaidEsparadrapo %></td>
+        <td><%= ficha.bandaidEsparadrapo %></td>
+        <td><%= ficha.autorizaBanho %></td>
+        <td><%= ficha.historicoDoencasContagiosas %></td>
+        <td><%= ficha.historicoDoencasContagiosasDescricao %></td>
+        <td><%= ficha.medicamentosAutorizados %></td>
+        <td><%= ficha.observacoes %></td>
+        <td><%= link_to 'Show', ficha %></td>
+        <td><%= link_to 'Edit', edit_ficha_path(ficha) %></td>
+        <td><%= link_to 'Destroy', ficha, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ficha', new_ficha_path %>
