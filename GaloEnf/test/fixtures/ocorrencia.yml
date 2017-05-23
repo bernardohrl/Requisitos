@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2017-05-23
+  hora: 2017-05-23 23:05:20
+  ocorrido: MyString
+  procedimento: MyString
+
+two:
+  data: 2017-05-23
+  hora: 2017-05-23 23:05:20
+  ocorrido: MyString
+  procedimento: MyString

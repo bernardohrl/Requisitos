@@ -1,0 +1,2 @@
+class Ocorrencia < ApplicationRecord
+end
