@@ -1,0 +1,52 @@
+<%= form_with(model: aluno, local: true) do |form| %>
+  <% if aluno.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(aluno.errors.count, "error") %> prohibited this aluno from being saved:</h2>
+
+      <ul>
+      <% aluno.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome, id: :aluno_nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dataNascimento %>
+    <%= form.date_select :dataNascimento, id: :aluno_dataNascimento %>
+  </div>
+
+  <div class="field">
+    <%= form.label :turma %>
+    <%= form.text_field :turma, id: :aluno_turma %>
+  </div>
+
+  <div class="field">
+    <%= form.label :responsavelNome1 %>
+    <%= form.text_field :responsavelNome1, id: :aluno_responsavelNome1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :responsavelTelefone1 %>
+    <%= form.text_field :responsavelTelefone1, id: :aluno_responsavelTelefone1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :responsavelNome2 %>
+    <%= form.text_field :responsavelNome2, id: :aluno_responsavelNome2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :responsavelTelefone2 %>
+    <%= form.text_field :responsavelTelefone2, id: :aluno_responsavelTelefone2 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
