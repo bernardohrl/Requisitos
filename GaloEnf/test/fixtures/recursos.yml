@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  quantidade: 1
+  gasto: 1
+  validade: 2017-05-24
+  observacao: MyString
+
+two:
+  nome: MyString
+  quantidade: 1
+  gasto: 1
+  validade: 2017-05-24
+  observacao: MyString
