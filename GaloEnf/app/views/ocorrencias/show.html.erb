@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @ocorrencia.data %>
+</p>
+
+<p>
+  <strong>Hora:</strong>
+  <%= @ocorrencia.hora %>
+</p>
+
+<p>
+  <strong>Ocorrido:</strong>
+  <%= @ocorrencia.ocorrido %>
+</p>
+
+<p>
+  <strong>Procedimento:</strong>
+  <%= @ocorrencia.procedimento %>
+</p>
+
+<%= link_to 'Edit', edit_ocorrencia_path(@ocorrencia) %> |
+<%= link_to 'Back', ocorrencias_path %>

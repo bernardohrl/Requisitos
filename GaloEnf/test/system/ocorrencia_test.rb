@@ -1,9 +1,9 @@
 require "application_system_test_case"
 
-class OcorrenciaTest < ApplicationSystemTestCase
+class ocorrenciasTest < ApplicationSystemTestCase
   # test "visiting the index" do
-  #   visit ocorrencia_url
+  #   visit ocorrencias_url
   #
-  #   assert_selector "h1", text: "Ocorrencia"
+  #   assert_selector "h1", text: "ocorrencias"
   # end
 end

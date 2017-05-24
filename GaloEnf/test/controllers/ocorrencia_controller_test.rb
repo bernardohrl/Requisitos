@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class OcorrenciaControllerTest < ActionDispatch::IntegrationTest
+class ocorrenciasControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @ocorrencium = ocorrencia(:one)
+    @ocorrencia = ocorrencias(:one)
   end
 
   test "should get index" do
-    get ocorrencia_index_url
+    get ocorrencias_index_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_ocorrencium_url
+    get new_ocorrencia_url
     assert_response :success
   end
 
-  test "should create ocorrencium" do
-    assert_difference('Ocorrencia.count') do
-      post ocorrencia_index_url, params: { ocorrencium: { data: @ocorrencium.data, hora: @ocorrencium.hora, ocorrido: @ocorrencium.ocorrido, procedimento: @ocorrencium.procedimento } }
+  test "should create ocorrencia" do
+    assert_difference('ocorrencias.count') do
+      post ocorrencias_index_url, params: { ocorrencia: { data: @ocorrencia.data, hora: @ocorrencia.hora, ocorrido: @ocorrencia.ocorrido, procedimento: @ocorrencia.procedimento } }
     end
 
-    assert_redirected_to ocorrencium_url(Ocorrencia.last)
+    assert_redirected_to ocorrencia_url(ocorrencias.last)
   end
 
-  test "should show ocorrencium" do
-    get ocorrencium_url(@ocorrencium)
+  test "should show ocorrencia" do
+    get ocorrencia_url(@ocorrencia)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_ocorrencium_url(@ocorrencium)
+    get edit_ocorrencia_url(@ocorrencia)
     assert_response :success
   end
 
-  test "should update ocorrencium" do
-    patch ocorrencium_url(@ocorrencium), params: { ocorrencium: { data: @ocorrencium.data, hora: @ocorrencium.hora, ocorrido: @ocorrencium.ocorrido, procedimento: @ocorrencium.procedimento } }
-    assert_redirected_to ocorrencium_url(@ocorrencium)
+  test "should update ocorrencia" do
+    patch ocorrencia_url(@ocorrencia), params: { ocorrencia: { data: @ocorrencia.data, hora: @ocorrencia.hora, ocorrido: @ocorrencia.ocorrido, procedimento: @ocorrencia.procedimento } }
+    assert_redirected_to ocorrencia_url(@ocorrencia)
   end
 
-  test "should destroy ocorrencium" do
-    assert_difference('Ocorrencia.count', -1) do
-      delete ocorrencium_url(@ocorrencium)
+  test "should destroy ocorrencia" do
+    assert_difference('ocorrencias.count', -1) do
+      delete ocorrencia_url(@ocorrencia)
     end
 
-    assert_redirected_to ocorrencia_index_url
+    assert_redirected_to ocorrencias_index_url
   end
 end

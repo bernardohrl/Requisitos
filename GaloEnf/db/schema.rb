@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20170524205836) do
     t.date "dataFicha"
   end
 
-  create_table "ocorrencia", force: :cascade do |t|
+  create_table "ocorrencias", force: :cascade do |t|
     t.date "data"
     t.time "hora"
     t.string "ocorrido"

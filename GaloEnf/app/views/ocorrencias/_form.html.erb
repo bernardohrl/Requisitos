@@ -1,0 +1,37 @@
+<%= form_with(model: ocorrencia, local: true) do |form| %>
+  <% if ocorrencia.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ocorrencia.errors.count, "error") %> prohibited this ocorrencia from being saved:</h2>
+
+      <ul>
+      <% ocorrencia.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :data %>
+    <%= form.date_select :data, id: :ocorrencia_data %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hora %>
+    <%= form.time_select :hora, id: :ocorrencia_hora %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ocorrido %>
+    <%= form.text_field :ocorrido, id: :ocorrencia_ocorrido %>
+  </div>
+
+  <div class="field">
+    <%= form.label :procedimento %>
+    <%= form.text_field :procedimento, id: :ocorrencia_procedimento %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

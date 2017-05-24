@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ocorrencias</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Hora</th>
+      <th>Ocorrido</th>
+      <th>Procedimento</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ocorrencias.each do |ocorrencia| %>
+      <tr>
+        <td><%= ocorrencia.data %></td>
+        <td><%= ocorrencia.hora %></td>
+        <td><%= ocorrencia.ocorrido %></td>
+        <td><%= ocorrencia.procedimento %></td>
+        <td><%= link_to 'Show', ocorrencia %></td>
+        <td><%= link_to 'Edit', edit_ocorrencia_path(ocorrencia) %></td>
+        <td><%= link_to 'Destroy', ocorrencia, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New ocorrencia', new_ocorrencia_path %>
