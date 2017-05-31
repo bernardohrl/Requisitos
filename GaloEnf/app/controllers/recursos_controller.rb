@@ -28,7 +28,7 @@ class RecursosController < ApplicationController
 
     respond_to do |format|
       if @recurso.save
-        format.html { redirect_to @recurso, notice: 'Recurso was successfully created.' }
+        format.html { redirect_to @recurso, notice: 'Recurso foi registrado com sucesso.' }
         format.json { render :show, status: :created, location: @recurso }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class RecursosController < ApplicationController
   def update
     respond_to do |format|
       if @recurso.update(recurso_params)
-        format.html { redirect_to @recurso, notice: 'Recurso was successfully updated.' }
+        format.html { redirect_to @recurso, notice: 'Recurso foi atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @recurso }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class RecursosController < ApplicationController
   def destroy
     @recurso.destroy
     respond_to do |format|
-      format.html { redirect_to recursos_url, notice: 'Recurso was successfully destroyed.' }
+      format.html { redirect_to recursos_url, notice: 'Recurso foi deletado com sucesso.' }
       format.json { head :no_content }
     end
   end

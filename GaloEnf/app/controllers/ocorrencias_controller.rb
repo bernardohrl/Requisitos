@@ -28,7 +28,7 @@ class OcorrenciasController < ApplicationController
 
     respond_to do |format|
       if @ocorrencia.save
-        format.html { redirect_to @ocorrencia, notice: 'ocorrencias was successfully created.' }
+        format.html { redirect_to @ocorrencia, notice: 'Ocorrência foi registrada com sucesso.' }
         format.json { render :show, status: :created, location: @ocorrencia }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class OcorrenciasController < ApplicationController
   def update
     respond_to do |format|
       if @ocorrencia.update(ocorrencia_params)
-        format.html { redirect_to @ocorrencia, notice: 'ocorrencias was successfully updated.' }
+        format.html { redirect_to @ocorrencia, notice: 'Ocorrência foi atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @ocorrencia }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class OcorrenciasController < ApplicationController
   def destroy
     @ocorrencia.destroy
     respond_to do |format|
-      format.html { redirect_to ocorrencias_url, notice: 'ocorrencias was successfully destroyed.' }
+      format.html { redirect_to ocorrencias_url, notice: 'Ocorrência foi deletada com sucesso.' }
       format.json { head :no_content }
     end
   end
