@@ -1,33 +1,48 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Ocorrencias</h1>
-
-<table>
+<%- model_class = Ocorrencia -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Data</th>
-      <th>Hora</th>
-      <th>Ocorrido</th>
-      <th>Procedimento</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:data) %></th>
+      <th><%= model_class.human_attribute_name(:hora) %></th>
+      <th><%= model_class.human_attribute_name(:ocorrido) %></th>
+      <th><%= model_class.human_attribute_name(:procedimento) %></th>
+      <th><%= model_class.human_attribute_name(:sintomaApresentado) %></th>
+      <th><%= model_class.human_attribute_name(:paisInformados) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @ocorrencias.each do |ocorrencia| %>
       <tr>
+        <td><%= link_to ocorrencia.id, ocorrencia_path(ocorrencia) %></td>
         <td><%= ocorrencia.data %></td>
         <td><%= ocorrencia.hora %></td>
         <td><%= ocorrencia.ocorrido %></td>
         <td><%= ocorrencia.procedimento %></td>
-        <td><%= link_to 'Show', ocorrencia %></td>
-        <td><%= link_to 'Edit', edit_ocorrencia_path(ocorrencia) %></td>
-        <td><%= link_to 'Destroy', ocorrencia, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= ocorrencia.sintomaApresentado %></td>
+        <td><%= ocorrencia.paisInformados %></td>
+        <td><%=l ocorrencia.created_at %></td>
+        <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      ocorrencia_path(ocorrencia), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_ocorrencia_path(ocorrencia), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      ocorrencia_path(ocorrencia),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New ocorrencia', new_ocorrencia_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_ocorrencia_path,
+            :class => 'btn btn-primary' %>

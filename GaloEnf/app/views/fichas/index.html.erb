@@ -1,51 +1,54 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Fichas</h1>
-
-<table>
+<%- model_class = Ficha -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Medicamentocontrolado</th>
-      <th>Medicamentocontroladodescricao</th>
-      <th>Alergiamedicamento</th>
-      <th>Alergiamedicamentodescricao</th>
-      <th>Medicamentodorfebre</th>
-      <th>Alergiainsetos</th>
-      <th>Alergiainsetosdescricao</th>
-      <th>Alergiainsetosmedicamentos</th>
-      <th>Nauseasvomitos</th>
-      <th>Nauseasvomitosdescricao</th>
-      <th>Alergiaalimentos</th>
-      <th>Alergiaalimentosdescricao</th>
-      <th>Vacinas</th>
-      <th>Vacinasdescricao</th>
-      <th>Convenio</th>
-      <th>Convenionome</th>
-      <th>Convenionumero</th>
-      <th>Conveniohospitais</th>
-      <th>Autorizahospital</th>
-      <th>Modificacaosaude</th>
-      <th>Modificacaosaudedescricao</th>
-      <th>Tratamento</th>
-      <th>Tratamentodescricao</th>
-      <th>Alteracaosaude</th>
-      <th>Alteracaosaudedescricao</th>
-      <th>Diabetico</th>
-      <th>Usosorocaseiro</th>
-      <th>Alergiabandaidesparadrapo</th>
-      <th>Bandaidesparadrapo</th>
-      <th>Autorizabanho</th>
-      <th>Historicodoencascontagiosas</th>
-      <th>Historicodoencascontagiosasdescricao</th>
-      <th>Medicamentosautorizados</th>
-      <th>Observacoes</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:medicamentoControlado) %></th>
+      <th><%= model_class.human_attribute_name(:medicamentoControladoDescricao) %></th>
+      <th><%= model_class.human_attribute_name(:alergiaMedicamento) %></th>
+      <th><%= model_class.human_attribute_name(:alergiaMedicamentoDescricao) %></th>
+      <th><%= model_class.human_attribute_name(:medicamentoDorFebre) %></th>
+      <th><%= model_class.human_attribute_name(:alergiaInsetos) %></th>
+      <th><%= model_class.human_attribute_name(:alergiaInsetosDescricao) %></th>
+      <th><%= model_class.human_attribute_name(:alergiaInsetosMedicamentos) %></th>
+      <th><%= model_class.human_attribute_name(:nauseasVomitos) %></th>
+      <th><%= model_class.human_attribute_name(:nauseasVomitosDescricao) %></th>
+      <th><%= model_class.human_attribute_name(:alergiaAlimentos) %></th>
+      <th><%= model_class.human_attribute_name(:alergiaAlimentosDescricao) %></th>
+      <th><%= model_class.human_attribute_name(:vacinas) %></th>
+      <th><%= model_class.human_attribute_name(:vacinasDescricao) %></th>
+      <th><%= model_class.human_attribute_name(:convenio) %></th>
+      <th><%= model_class.human_attribute_name(:convenioNome) %></th>
+      <th><%= model_class.human_attribute_name(:convenioNumero) %></th>
+      <th><%= model_class.human_attribute_name(:convenioHospitais) %></th>
+      <th><%= model_class.human_attribute_name(:autorizaHospital) %></th>
+      <th><%= model_class.human_attribute_name(:modificacaoSaude) %></th>
+      <th><%= model_class.human_attribute_name(:modificacaoSaudeDescricao) %></th>
+      <th><%= model_class.human_attribute_name(:tratamento) %></th>
+      <th><%= model_class.human_attribute_name(:tratamentoDescricao) %></th>
+      <th><%= model_class.human_attribute_name(:alteracaoSaude) %></th>
+      <th><%= model_class.human_attribute_name(:alteracaoSaudeDescricao) %></th>
+      <th><%= model_class.human_attribute_name(:diabetico) %></th>
+      <th><%= model_class.human_attribute_name(:usoSoroCaseiro) %></th>
+      <th><%= model_class.human_attribute_name(:alergiaBandaidEsparadrapo) %></th>
+      <th><%= model_class.human_attribute_name(:bandaidEsparadrapo) %></th>
+      <th><%= model_class.human_attribute_name(:autorizaBanho) %></th>
+      <th><%= model_class.human_attribute_name(:historicoDoencasContagiosas) %></th>
+      <th><%= model_class.human_attribute_name(:historicoDoencasContagiosasDescricao) %></th>
+      <th><%= model_class.human_attribute_name(:medicamentosAutorizados) %></th>
+      <th><%= model_class.human_attribute_name(:observacoes) %></th>
+      <th><%= model_class.human_attribute_name(:dataFicha) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @fichas.each do |ficha| %>
       <tr>
+        <td><%= link_to ficha.id, ficha_path(ficha) %></td>
         <td><%= ficha.medicamentoControlado %></td>
         <td><%= ficha.medicamentoControladoDescricao %></td>
         <td><%= ficha.alergiaMedicamento %></td>
@@ -80,14 +83,24 @@
         <td><%= ficha.historicoDoencasContagiosasDescricao %></td>
         <td><%= ficha.medicamentosAutorizados %></td>
         <td><%= ficha.observacoes %></td>
-        <td><%= link_to 'Show', ficha %></td>
-        <td><%= link_to 'Edit', edit_ficha_path(ficha) %></td>
-        <td><%= link_to 'Destroy', ficha, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= ficha.dataFicha %></td>
+        <td><%=l ficha.created_at %></td>
+        <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      ficha_path(ficha), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_ficha_path(ficha), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      ficha_path(ficha),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Ficha', new_ficha_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_ficha_path,
+            :class => 'btn btn-primary' %>

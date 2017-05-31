@@ -1,6 +1,5 @@
-<h1>Editing Ocorrencia</h1>
-
-<%= render 'form', ocorrencia: @ocorrencia %>
-
-<%= link_to 'Show', @ocorrencia %> |
-<%= link_to 'Back', ocorrencias_path %>
+<%- model_class = Ocorrencia -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>

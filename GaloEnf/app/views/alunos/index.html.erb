@@ -1,24 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Alunos</h1>
-
-<table>
+<%- model_class = Aluno -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Nome</th>
-      <th>Datanascimento</th>
-      <th>Turma</th>
-      <th>Responsavelnome1</th>
-      <th>Responsaveltelefone1</th>
-      <th>Responsavelnome2</th>
-      <th>Responsaveltelefone2</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:nome) %></th>
+      <th><%= model_class.human_attribute_name(:dataNascimento) %></th>
+      <th><%= model_class.human_attribute_name(:turma) %></th>
+      <th><%= model_class.human_attribute_name(:responsavelNome1) %></th>
+      <th><%= model_class.human_attribute_name(:responsavelTelefone1) %></th>
+      <th><%= model_class.human_attribute_name(:responsavelNome2) %></th>
+      <th><%= model_class.human_attribute_name(:responsavelTelefone2) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @alunos.each do |aluno| %>
       <tr>
+        <td><%= link_to aluno.id, aluno_path(aluno) %></td>
         <td><%= aluno.nome %></td>
         <td><%= aluno.dataNascimento %></td>
         <td><%= aluno.turma %></td>
@@ -26,14 +28,23 @@
         <td><%= aluno.responsavelTelefone1 %></td>
         <td><%= aluno.responsavelNome2 %></td>
         <td><%= aluno.responsavelTelefone2 %></td>
-        <td><%= link_to 'Show', aluno %></td>
-        <td><%= link_to 'Edit', edit_aluno_path(aluno) %></td>
-        <td><%= link_to 'Destroy', aluno, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l aluno.created_at %></td>
+        <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      aluno_path(aluno), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_aluno_path(aluno), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      aluno_path(aluno),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Aluno', new_aluno_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_aluno_path,
+            :class => 'btn btn-primary' %>

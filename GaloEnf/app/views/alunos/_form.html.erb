@@ -1,52 +1,76 @@
-<%= form_with(model: aluno, local: true) do |form| %>
-  <% if aluno.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(aluno.errors.count, "error") %> prohibited this aluno from being saved:</h2>
+<%= form_for @aluno, :html => { :class => "form-horizontal aluno" } do |f| %>
 
-      <ul>
-      <% aluno.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @aluno.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@aluno.errors.count, "error") %> prohibited this aluno from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @aluno.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome, id: :aluno_nome %>
+  <div class="form-group">
+    <%= f.label :nome, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :nome, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:nome) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :dataNascimento, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :dataNascimento, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:dataNascimento) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :turma, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :turma, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:turma) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :responsavelNome1, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :responsavelNome1, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:responsavelNome1) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :responsavelTelefone1, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :responsavelTelefone1, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:responsavelTelefone1) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :responsavelNome2, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :responsavelNome2, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:responsavelNome2) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :responsavelTelefone2, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :responsavelTelefone2, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:responsavelTelefone2) %>
   </div>
 
-  <div class="field">
-    <%= form.label :dataNascimento %>
-    <%= form.date_select :dataNascimento, id: :aluno_dataNascimento %>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                alunos_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :turma %>
-    <%= form.text_field :turma, id: :aluno_turma %>
-  </div>
-
-  <div class="field">
-    <%= form.label :responsavelNome1 %>
-    <%= form.text_field :responsavelNome1, id: :aluno_responsavelNome1 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :responsavelTelefone1 %>
-    <%= form.text_field :responsavelTelefone1, id: :aluno_responsavelTelefone1 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :responsavelNome2 %>
-    <%= form.text_field :responsavelNome2, id: :aluno_responsavelNome2 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :responsavelTelefone2 %>
-    <%= form.text_field :responsavelTelefone2, id: :aluno_responsavelTelefone2 %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

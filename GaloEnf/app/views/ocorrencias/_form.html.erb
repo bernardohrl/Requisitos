@@ -1,37 +1,69 @@
-<%= form_with(model: ocorrencia, local: true) do |form| %>
-  <% if ocorrencia.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(ocorrencia.errors.count, "error") %> prohibited this ocorrencia from being saved:</h2>
+<%= form_for @ocorrencia, :html => { :class => "form-horizontal ocorrencia" } do |f| %>
 
-      <ul>
-      <% ocorrencia.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @ocorrencia.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@ocorrencia.errors.count, "error") %> prohibited this ocorrencia from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @ocorrencia.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :data %>
-    <%= form.date_select :data, id: :ocorrencia_data %>
+  <div class="form-group">
+    <%= f.label :data, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :data, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:data) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :hora, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :hora, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:hora) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :ocorrido, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :ocorrido, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:ocorrido) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :procedimento, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :procedimento, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:procedimento) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :sintomaApresentado, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :sintomaApresentado, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:sintomaApresentado) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :paisInformados, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :paisInformados, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:paisInformados) %>
   </div>
 
-  <div class="field">
-    <%= form.label :hora %>
-    <%= form.time_select :hora, id: :ocorrencia_hora %>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                ocorrencias_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :ocorrido %>
-    <%= form.text_field :ocorrido, id: :ocorrencia_ocorrido %>
-  </div>
-
-  <div class="field">
-    <%= form.label :procedimento %>
-    <%= form.text_field :procedimento, id: :ocorrencia_procedimento %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

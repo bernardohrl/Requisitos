@@ -1,174 +1,87 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Ficha -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Medicamentocontrolado:</strong>
-  <%= @ficha.medicamentoControlado %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:medicamentoControlado) %>:</strong></dt>
+  <dd><%= @ficha.medicamentoControlado %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:medicamentoControladoDescricao) %>:</strong></dt>
+  <dd><%= @ficha.medicamentoControladoDescricao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:alergiaMedicamento) %>:</strong></dt>
+  <dd><%= @ficha.alergiaMedicamento %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:alergiaMedicamentoDescricao) %>:</strong></dt>
+  <dd><%= @ficha.alergiaMedicamentoDescricao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:medicamentoDorFebre) %>:</strong></dt>
+  <dd><%= @ficha.medicamentoDorFebre %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:alergiaInsetos) %>:</strong></dt>
+  <dd><%= @ficha.alergiaInsetos %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:alergiaInsetosDescricao) %>:</strong></dt>
+  <dd><%= @ficha.alergiaInsetosDescricao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:alergiaInsetosMedicamentos) %>:</strong></dt>
+  <dd><%= @ficha.alergiaInsetosMedicamentos %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nauseasVomitos) %>:</strong></dt>
+  <dd><%= @ficha.nauseasVomitos %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nauseasVomitosDescricao) %>:</strong></dt>
+  <dd><%= @ficha.nauseasVomitosDescricao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:alergiaAlimentos) %>:</strong></dt>
+  <dd><%= @ficha.alergiaAlimentos %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:alergiaAlimentosDescricao) %>:</strong></dt>
+  <dd><%= @ficha.alergiaAlimentosDescricao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:vacinas) %>:</strong></dt>
+  <dd><%= @ficha.vacinas %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:vacinasDescricao) %>:</strong></dt>
+  <dd><%= @ficha.vacinasDescricao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:convenio) %>:</strong></dt>
+  <dd><%= @ficha.convenio %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:convenioNome) %>:</strong></dt>
+  <dd><%= @ficha.convenioNome %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:convenioNumero) %>:</strong></dt>
+  <dd><%= @ficha.convenioNumero %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:convenioHospitais) %>:</strong></dt>
+  <dd><%= @ficha.convenioHospitais %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:autorizaHospital) %>:</strong></dt>
+  <dd><%= @ficha.autorizaHospital %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:modificacaoSaude) %>:</strong></dt>
+  <dd><%= @ficha.modificacaoSaude %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:modificacaoSaudeDescricao) %>:</strong></dt>
+  <dd><%= @ficha.modificacaoSaudeDescricao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tratamento) %>:</strong></dt>
+  <dd><%= @ficha.tratamento %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tratamentoDescricao) %>:</strong></dt>
+  <dd><%= @ficha.tratamentoDescricao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:alteracaoSaude) %>:</strong></dt>
+  <dd><%= @ficha.alteracaoSaude %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:alteracaoSaudeDescricao) %>:</strong></dt>
+  <dd><%= @ficha.alteracaoSaudeDescricao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:diabetico) %>:</strong></dt>
+  <dd><%= @ficha.diabetico %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:usoSoroCaseiro) %>:</strong></dt>
+  <dd><%= @ficha.usoSoroCaseiro %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:alergiaBandaidEsparadrapo) %>:</strong></dt>
+  <dd><%= @ficha.alergiaBandaidEsparadrapo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:bandaidEsparadrapo) %>:</strong></dt>
+  <dd><%= @ficha.bandaidEsparadrapo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:autorizaBanho) %>:</strong></dt>
+  <dd><%= @ficha.autorizaBanho %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:historicoDoencasContagiosas) %>:</strong></dt>
+  <dd><%= @ficha.historicoDoencasContagiosas %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:historicoDoencasContagiosasDescricao) %>:</strong></dt>
+  <dd><%= @ficha.historicoDoencasContagiosasDescricao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:medicamentosAutorizados) %>:</strong></dt>
+  <dd><%= @ficha.medicamentosAutorizados %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:observacoes) %>:</strong></dt>
+  <dd><%= @ficha.observacoes %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:dataFicha) %>:</strong></dt>
+  <dd><%= @ficha.dataFicha %></dd>
+</dl>
 
-<p>
-  <strong>Medicamentocontroladodescricao:</strong>
-  <%= @ficha.medicamentoControladoDescricao %>
-</p>
-
-<p>
-  <strong>Alergiamedicamento:</strong>
-  <%= @ficha.alergiaMedicamento %>
-</p>
-
-<p>
-  <strong>Alergiamedicamentodescricao:</strong>
-  <%= @ficha.alergiaMedicamentoDescricao %>
-</p>
-
-<p>
-  <strong>Medicamentodorfebre:</strong>
-  <%= @ficha.medicamentoDorFebre %>
-</p>
-
-<p>
-  <strong>Alergiainsetos:</strong>
-  <%= @ficha.alergiaInsetos %>
-</p>
-
-<p>
-  <strong>Alergiainsetosdescricao:</strong>
-  <%= @ficha.alergiaInsetosDescricao %>
-</p>
-
-<p>
-  <strong>Alergiainsetosmedicamentos:</strong>
-  <%= @ficha.alergiaInsetosMedicamentos %>
-</p>
-
-<p>
-  <strong>Nauseasvomitos:</strong>
-  <%= @ficha.nauseasVomitos %>
-</p>
-
-<p>
-  <strong>Nauseasvomitosdescricao:</strong>
-  <%= @ficha.nauseasVomitosDescricao %>
-</p>
-
-<p>
-  <strong>Alergiaalimentos:</strong>
-  <%= @ficha.alergiaAlimentos %>
-</p>
-
-<p>
-  <strong>Alergiaalimentosdescricao:</strong>
-  <%= @ficha.alergiaAlimentosDescricao %>
-</p>
-
-<p>
-  <strong>Vacinas:</strong>
-  <%= @ficha.vacinas %>
-</p>
-
-<p>
-  <strong>Vacinasdescricao:</strong>
-  <%= @ficha.vacinasDescricao %>
-</p>
-
-<p>
-  <strong>Convenio:</strong>
-  <%= @ficha.convenio %>
-</p>
-
-<p>
-  <strong>Convenionome:</strong>
-  <%= @ficha.convenioNome %>
-</p>
-
-<p>
-  <strong>Convenionumero:</strong>
-  <%= @ficha.convenioNumero %>
-</p>
-
-<p>
-  <strong>Conveniohospitais:</strong>
-  <%= @ficha.convenioHospitais %>
-</p>
-
-<p>
-  <strong>Autorizahospital:</strong>
-  <%= @ficha.autorizaHospital %>
-</p>
-
-<p>
-  <strong>Modificacaosaude:</strong>
-  <%= @ficha.modificacaoSaude %>
-</p>
-
-<p>
-  <strong>Modificacaosaudedescricao:</strong>
-  <%= @ficha.modificacaoSaudeDescricao %>
-</p>
-
-<p>
-  <strong>Tratamento:</strong>
-  <%= @ficha.tratamento %>
-</p>
-
-<p>
-  <strong>Tratamentodescricao:</strong>
-  <%= @ficha.tratamentoDescricao %>
-</p>
-
-<p>
-  <strong>Alteracaosaude:</strong>
-  <%= @ficha.alteracaoSaude %>
-</p>
-
-<p>
-  <strong>Alteracaosaudedescricao:</strong>
-  <%= @ficha.alteracaoSaudeDescricao %>
-</p>
-
-<p>
-  <strong>Diabetico:</strong>
-  <%= @ficha.diabetico %>
-</p>
-
-<p>
-  <strong>Usosorocaseiro:</strong>
-  <%= @ficha.usoSoroCaseiro %>
-</p>
-
-<p>
-  <strong>Alergiabandaidesparadrapo:</strong>
-  <%= @ficha.alergiaBandaidEsparadrapo %>
-</p>
-
-<p>
-  <strong>Bandaidesparadrapo:</strong>
-  <%= @ficha.bandaidEsparadrapo %>
-</p>
-
-<p>
-  <strong>Autorizabanho:</strong>
-  <%= @ficha.autorizaBanho %>
-</p>
-
-<p>
-  <strong>Historicodoencascontagiosas:</strong>
-  <%= @ficha.historicoDoencasContagiosas %>
-</p>
-
-<p>
-  <strong>Historicodoencascontagiosasdescricao:</strong>
-  <%= @ficha.historicoDoencasContagiosasDescricao %>
-</p>
-
-<p>
-  <strong>Medicamentosautorizados:</strong>
-  <%= @ficha.medicamentosAutorizados %>
-</p>
-
-<p>
-  <strong>Observacoes:</strong>
-  <%= @ficha.observacoes %>
-</p>
-
-<%= link_to 'Edit', edit_ficha_path(@ficha) %> |
-<%= link_to 'Back', fichas_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              fichas_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_ficha_path(@ficha), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              ficha_path(@ficha),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

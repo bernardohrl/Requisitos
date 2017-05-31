@@ -1,187 +1,272 @@
-<%= form_with(model: ficha, local: true) do |form| %>
-  <% if ficha.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(ficha.errors.count, "error") %> prohibited this ficha from being saved:</h2>
+<%= form_for @ficha, :html => { :class => "form-horizontal ficha" } do |f| %>
 
-      <ul>
-      <% ficha.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @ficha.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@ficha.errors.count, "error") %> prohibited this ficha from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @ficha.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :medicamentoControlado %>
-    <%= form.check_box :medicamentoControlado, id: :ficha_medicamentoControlado %>
+  <div class="form-group">
+    <%= f.label :medicamentoControlado, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :medicamentoControlado, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:medicamentoControlado) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :medicamentoControladoDescricao, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :medicamentoControladoDescricao, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:medicamentoControladoDescricao) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :alergiaMedicamento, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :alergiaMedicamento, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:alergiaMedicamento) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :alergiaMedicamentoDescricao, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :alergiaMedicamentoDescricao, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:alergiaMedicamentoDescricao) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :medicamentoDorFebre, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :medicamentoDorFebre, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:medicamentoDorFebre) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :alergiaInsetos, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :alergiaInsetos, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:alergiaInsetos) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :alergiaInsetosDescricao, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :alergiaInsetosDescricao, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:alergiaInsetosDescricao) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :alergiaInsetosMedicamentos, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :alergiaInsetosMedicamentos, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:alergiaInsetosMedicamentos) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :nauseasVomitos, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :nauseasVomitos, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:nauseasVomitos) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :nauseasVomitosDescricao, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :nauseasVomitosDescricao, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:nauseasVomitosDescricao) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :alergiaAlimentos, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :alergiaAlimentos, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:alergiaAlimentos) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :alergiaAlimentosDescricao, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :alergiaAlimentosDescricao, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:alergiaAlimentosDescricao) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :vacinas, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :vacinas, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:vacinas) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :vacinasDescricao, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :vacinasDescricao, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:vacinasDescricao) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :convenio, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :convenio, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:convenio) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :convenioNome, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :convenioNome, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:convenioNome) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :convenioNumero, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :convenioNumero, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:convenioNumero) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :convenioHospitais, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :convenioHospitais, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:convenioHospitais) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :autorizaHospital, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :autorizaHospital, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:autorizaHospital) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :modificacaoSaude, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :modificacaoSaude, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:modificacaoSaude) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :modificacaoSaudeDescricao, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :modificacaoSaudeDescricao, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:modificacaoSaudeDescricao) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :tratamento, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :tratamento, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:tratamento) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :tratamentoDescricao, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :tratamentoDescricao, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:tratamentoDescricao) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :alteracaoSaude, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :alteracaoSaude, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:alteracaoSaude) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :alteracaoSaudeDescricao, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :alteracaoSaudeDescricao, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:alteracaoSaudeDescricao) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :diabetico, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :diabetico, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:diabetico) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :usoSoroCaseiro, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :usoSoroCaseiro, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:usoSoroCaseiro) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :alergiaBandaidEsparadrapo, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :alergiaBandaidEsparadrapo, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:alergiaBandaidEsparadrapo) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :bandaidEsparadrapo, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :bandaidEsparadrapo, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:bandaidEsparadrapo) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :autorizaBanho, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :autorizaBanho, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:autorizaBanho) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :historicoDoencasContagiosas, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :historicoDoencasContagiosas, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:historicoDoencasContagiosas) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :historicoDoencasContagiosasDescricao, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :historicoDoencasContagiosasDescricao, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:historicoDoencasContagiosasDescricao) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :medicamentosAutorizados, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :medicamentosAutorizados, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:medicamentosAutorizados) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :observacoes, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :observacoes, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:observacoes) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :dataFicha, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :dataFicha, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:dataFicha) %>
   </div>
 
-  <div class="field">
-    <%= form.label :medicamentoControladoDescricao %>
-    <%= form.text_field :medicamentoControladoDescricao, id: :ficha_medicamentoControladoDescricao %>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                fichas_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :alergiaMedicamento %>
-    <%= form.check_box :alergiaMedicamento, id: :ficha_alergiaMedicamento %>
-  </div>
-
-  <div class="field">
-    <%= form.label :alergiaMedicamentoDescricao %>
-    <%= form.text_field :alergiaMedicamentoDescricao, id: :ficha_alergiaMedicamentoDescricao %>
-  </div>
-
-  <div class="field">
-    <%= form.label :medicamentoDorFebre %>
-    <%= form.text_field :medicamentoDorFebre, id: :ficha_medicamentoDorFebre %>
-  </div>
-
-  <div class="field">
-    <%= form.label :alergiaInsetos %>
-    <%= form.check_box :alergiaInsetos, id: :ficha_alergiaInsetos %>
-  </div>
-
-  <div class="field">
-    <%= form.label :alergiaInsetosDescricao %>
-    <%= form.text_field :alergiaInsetosDescricao, id: :ficha_alergiaInsetosDescricao %>
-  </div>
-
-  <div class="field">
-    <%= form.label :alergiaInsetosMedicamentos %>
-    <%= form.text_field :alergiaInsetosMedicamentos, id: :ficha_alergiaInsetosMedicamentos %>
-  </div>
-
-  <div class="field">
-    <%= form.label :nauseasVomitos %>
-    <%= form.check_box :nauseasVomitos, id: :ficha_nauseasVomitos %>
-  </div>
-
-  <div class="field">
-    <%= form.label :nauseasVomitosDescricao %>
-    <%= form.text_field :nauseasVomitosDescricao, id: :ficha_nauseasVomitosDescricao %>
-  </div>
-
-  <div class="field">
-    <%= form.label :alergiaAlimentos %>
-    <%= form.check_box :alergiaAlimentos, id: :ficha_alergiaAlimentos %>
-  </div>
-
-  <div class="field">
-    <%= form.label :alergiaAlimentosDescricao %>
-    <%= form.text_field :alergiaAlimentosDescricao, id: :ficha_alergiaAlimentosDescricao %>
-  </div>
-
-  <div class="field">
-    <%= form.label :vacinas %>
-    <%= form.check_box :vacinas, id: :ficha_vacinas %>
-  </div>
-
-  <div class="field">
-    <%= form.label :vacinasDescricao %>
-    <%= form.text_field :vacinasDescricao, id: :ficha_vacinasDescricao %>
-  </div>
-
-  <div class="field">
-    <%= form.label :convenio %>
-    <%= form.check_box :convenio, id: :ficha_convenio %>
-  </div>
-
-  <div class="field">
-    <%= form.label :convenioNome %>
-    <%= form.text_field :convenioNome, id: :ficha_convenioNome %>
-  </div>
-
-  <div class="field">
-    <%= form.label :convenioNumero %>
-    <%= form.text_field :convenioNumero, id: :ficha_convenioNumero %>
-  </div>
-
-  <div class="field">
-    <%= form.label :convenioHospitais %>
-    <%= form.text_field :convenioHospitais, id: :ficha_convenioHospitais %>
-  </div>
-
-  <div class="field">
-    <%= form.label :autorizaHospital %>
-    <%= form.check_box :autorizaHospital, id: :ficha_autorizaHospital %>
-  </div>
-
-  <div class="field">
-    <%= form.label :modificacaoSaude %>
-    <%= form.check_box :modificacaoSaude, id: :ficha_modificacaoSaude %>
-  </div>
-
-  <div class="field">
-    <%= form.label :modificacaoSaudeDescricao %>
-    <%= form.text_field :modificacaoSaudeDescricao, id: :ficha_modificacaoSaudeDescricao %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tratamento %>
-    <%= form.check_box :tratamento, id: :ficha_tratamento %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tratamentoDescricao %>
-    <%= form.text_field :tratamentoDescricao, id: :ficha_tratamentoDescricao %>
-  </div>
-
-  <div class="field">
-    <%= form.label :alteracaoSaude %>
-    <%= form.check_box :alteracaoSaude, id: :ficha_alteracaoSaude %>
-  </div>
-
-  <div class="field">
-    <%= form.label :alteracaoSaudeDescricao %>
-    <%= form.text_field :alteracaoSaudeDescricao, id: :ficha_alteracaoSaudeDescricao %>
-  </div>
-
-  <div class="field">
-    <%= form.label :diabetico %>
-    <%= form.check_box :diabetico, id: :ficha_diabetico %>
-  </div>
-
-  <div class="field">
-    <%= form.label :usoSoroCaseiro %>
-    <%= form.check_box :usoSoroCaseiro, id: :ficha_usoSoroCaseiro %>
-  </div>
-
-  <div class="field">
-    <%= form.label :alergiaBandaidEsparadrapo %>
-    <%= form.check_box :alergiaBandaidEsparadrapo, id: :ficha_alergiaBandaidEsparadrapo %>
-  </div>
-
-  <div class="field">
-    <%= form.label :bandaidEsparadrapo %>
-    <%= form.check_box :bandaidEsparadrapo, id: :ficha_bandaidEsparadrapo %>
-  </div>
-
-  <div class="field">
-    <%= form.label :autorizaBanho %>
-    <%= form.check_box :autorizaBanho, id: :ficha_autorizaBanho %>
-  </div>
-
-  <div class="field">
-    <%= form.label :historicoDoencasContagiosas %>
-    <%= form.check_box :historicoDoencasContagiosas, id: :ficha_historicoDoencasContagiosas %>
-  </div>
-
-  <div class="field">
-    <%= form.label :historicoDoencasContagiosasDescricao %>
-    <%= form.text_field :historicoDoencasContagiosasDescricao, id: :ficha_historicoDoencasContagiosasDescricao %>
-  </div>
-
-  <div class="field">
-    <%= form.label :medicamentosAutorizados %>
-    <%= form.text_field :medicamentosAutorizados, id: :ficha_medicamentosAutorizados %>
-  </div>
-
-  <div class="field">
-    <%= form.label :observacoes %>
-    <%= form.text_field :observacoes, id: :ficha_observacoes %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

@@ -1,42 +1,62 @@
-<%= form_with(model: recurso, local: true) do |form| %>
-  <% if recurso.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(recurso.errors.count, "error") %> prohibited this recurso from being saved:</h2>
+<%= form_for @recurso, :html => { :class => "form-horizontal recurso" } do |f| %>
 
-      <ul>
-      <% recurso.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @recurso.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@recurso.errors.count, "error") %> prohibited this recurso from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @recurso.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome, id: :recurso_nome %>
+  <div class="form-group">
+    <%= f.label :nome, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :nome, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:nome) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :quantidade, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :quantidade, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:quantidade) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :gasto, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :gasto, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:gasto) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :validade, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :validade, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:validade) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :observacao, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :observacao, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:observacao) %>
   </div>
 
-  <div class="field">
-    <%= form.label :quantidade %>
-    <%= form.number_field :quantidade, id: :recurso_quantidade %>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                recursos_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :gasto %>
-    <%= form.number_field :gasto, id: :recurso_gasto %>
-  </div>
-
-  <div class="field">
-    <%= form.label :validade %>
-    <%= form.date_select :validade, id: :recurso_validade %>
-  </div>
-
-  <div class="field">
-    <%= form.label :observacao %>
-    <%= form.text_field :observacao, id: :recurso_observacao %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
