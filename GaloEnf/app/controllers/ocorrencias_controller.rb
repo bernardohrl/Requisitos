@@ -15,6 +15,13 @@ class OcorrenciasController < ApplicationController
   # GET /ocorrencias/new
   def new
     @ocorrencia = Ocorrencia.new
+    @ocorrencia.data = Date.today
+    puts '-------------------------------'
+    Time.use_zone(config.time_zone) {
+      puts hora = Time.now.strftime("%H:%M")
+    }
+    puts '-------------------------------'
+    @ocorrencia.hora = Time.now
   end
 
   # GET /ocorrencias/1/edit
@@ -69,6 +76,7 @@ class OcorrenciasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ocorrencia_params
-      params.require(:ocorrencia).permit(:data, :hora, :ocorrido, :procedimento)
+      params.require(:ocorrencia).permit(:data, :hora, :ocorrido, :procedimento, :sintomaApresentado,
+                      :paisInformados)
     end
 end
