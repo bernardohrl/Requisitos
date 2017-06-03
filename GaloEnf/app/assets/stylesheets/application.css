@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+ :root {
+   /* Colors s*/
+   --default-red: #FF0000;
+
+
+
+   /* Usage */
+   --nav-bg-color: var(--default-red);
+   --bg-color: white;
+ }

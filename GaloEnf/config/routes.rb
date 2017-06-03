@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
   resources :recursos
   resources :ocorrencias
   resources :fichas
