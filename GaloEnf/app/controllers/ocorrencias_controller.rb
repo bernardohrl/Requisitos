@@ -16,12 +16,6 @@ class OcorrenciasController < ApplicationController
   def new
     @ocorrencia = Ocorrencia.new
     @ocorrencia.data = Date.today
-    puts '-------------------------------'
-    Time.use_zone(config.time_zone) {
-      puts hora = Time.now.strftime("%H:%M")
-    }
-    puts '-------------------------------'
-    @ocorrencia.hora = Time.now
   end
 
   # GET /ocorrencias/1/edit

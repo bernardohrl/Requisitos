@@ -6,4 +6,6 @@
   <%= f.text_area :sintomaApresentado, label: "Sintoma Apresentado" %>
   <%= f.check_box :paisInformados, label: "Pais foram Informados?" %>
   <%= f.submit "Criar Ocorrencia" %>
+  <%= link_to t('.cancel', :default => "Voltar"),
+            ocorrencias_path, :class => 'btn btn-default' %>
 <% end %>

@@ -25,21 +25,21 @@
   <div class="form-group">
     <%= f.label :quantidade, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :quantidade, :class => 'form-control' %>
+      <%= f.number_field :quantidade, :class => 'form-control' %>
     </div>
     <%=f.error_span(:quantidade) %>
   </div>
   <div class="form-group">
     <%= f.label :gasto, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :gasto, :class => 'form-control' %>
+      <%= f.number_field :gasto, :class => 'form-control' %>
     </div>
     <%=f.error_span(:gasto) %>
   </div>
   <div class="form-group">
     <%= f.label :validade, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :validade, :class => 'form-control' %>
+      <%= f.date_select :validade, :class => 'form-control' %>
     </div>
     <%=f.error_span(:validade) %>
   </div>
@@ -54,7 +54,7 @@
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+      <%= link_to t('.cancel', :default => "Voltar"),
                 recursos_path, :class => 'btn btn-default' %>
     </div>
   </div>

@@ -1,45 +1,35 @@
 <%- model_class = Recurso -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1> Recursos </h1>
 </div>
+
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:nome) %></th>
-      <th><%= model_class.human_attribute_name(:quantidade) %></th>
-      <th><%= model_class.human_attribute_name(:gasto) %></th>
-      <th><%= model_class.human_attribute_name(:validade) %></th>
-      <th><%= model_class.human_attribute_name(:observacao) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th><%= "Recurso" %></th>
+      <th><%= "Quantidade" %></th>
+      <th><%= "Validade" %></th>
+      <th><%= "Gasto" %></th>
+      <th><%=  %></th>
     </tr>
   </thead>
   <tbody>
     <% @recursos.each do |recurso| %>
       <tr>
-        <td><%= link_to recurso.id, recurso_path(recurso) %></td>
         <td><%= recurso.nome %></td>
         <td><%= recurso.quantidade %></td>
-        <td><%= recurso.gasto %></td>
         <td><%= recurso.validade %></td>
-        <td><%= recurso.observacao %></td>
-        <td><%=l recurso.created_at %></td>
-        <td>
-          <%= link_to t('.show', :default => t("helpers.links.show")),
-                      recurso_path(recurso), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_recurso_path(recurso), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      recurso_path(recurso),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
+        <td><%= recurso.gasto %>
+            <%= link_to image_tag("icons/plus.svg", size: "16"), get_recurso_gasto_path(recurso.id)%>
         </td>
+        <td><%= link_to "Visualizar", recurso_path(recurso), :class => 'btn btn-default btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<div class="botao_adicao">
+</div>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_recurso_path,

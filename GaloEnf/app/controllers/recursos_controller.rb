@@ -61,6 +61,13 @@ class RecursosController < ApplicationController
     end
   end
 
+  def recurso_gasto
+    @recurso = Recurso.find(params[:id])
+    @recurso.update_attribute(:quantidade, (@recurso.quantidade - 1))
+    @recurso.update_attribute(:gasto, (@recurso.gasto + 1))
+      redirect_to recursos_url, :notice => "recurso alterado"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_recurso
