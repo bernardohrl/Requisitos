@@ -25,6 +25,7 @@ class RecursosController < ApplicationController
   # POST /recursos.json
   def create
     @recurso = Recurso.new(recurso_params)
+    @recurso.gasto = 0
 
     respond_to do |format|
       if @recurso.save

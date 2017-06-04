@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'home/index'
+  get 'home/index', as: 'home'
   resources :ocorrencias
   resources :fichas
   resources :alunos
