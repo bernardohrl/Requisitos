@@ -10,15 +10,31 @@
 
   <body style="margin: 0px;">
     <style>
-      .navbar-custom {
+      #mainNav {
         background-color: var(--nav-bg-color);
+        margin: 0px;
       }
+
+      #footer {
+        background-color: var(--nav-bg-color);
+        height: 100px;
+        color: white;
+        text-align: center;
+        position: relative;
+        bottom: 0px;
+      }
+
+      html, body {
+        margin: 0;
+        height: 100%;
+      }
+
     </style>
 
     <div id="skipnav"><a href="#maincontent">Skip to main content</a></div>
 
         <!-- Navigation -->
-        <nav id="mainNav" class="navbar navbar-custom" style="margin: 0px;">
+        <nav id="mainNav" class="navbar navbar-custom" style="">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header page-scroll">
@@ -54,6 +70,11 @@
         </nav>
 
     <%= yield %>
+
+
+    <div id="footer">
+
+    </div>
 
   </body>
 </html>
