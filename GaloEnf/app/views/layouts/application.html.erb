@@ -13,15 +13,23 @@
       #mainNav {
         background-color: var(--nav-bg-color);
         margin: 0px;
+        height: 90px;
       }
 
       #footer {
-        background-color: var(--nav-bg-color);
-        height: 100px;
-        color: white;
-        text-align: center;
-        position: relative;
-        bottom: 0px;
+          background-color: var(--nav-bg-color);
+          color: white;
+
+          text-align: center;
+          position: fixed;
+
+          bottom: 0px;
+          height: 80px;
+          width: 100%;
+      }
+
+      .content {
+        margin: 20px;
       }
 
       html, body {
@@ -69,10 +77,16 @@
             <!-- /.container-fluid -->
         </nav>
 
-    <%= yield %>
+    <div class="content">
+      <%= yield %>
+    </div>
 
 
     <div id="footer">
+      <br>
+      GaloEnf <br>
+      Sistema de Gerênciamento Otimizado <br>
+      Ajudando Enfermarias desde 2017!  <br>
 
     </div>
 

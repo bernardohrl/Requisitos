@@ -15,12 +15,14 @@
  */
  :root {
    /* Colors s*/
-   --default-red: #FF0000;
+   --default-wine-1: 	#800000;
+   --default-wine-2: #8B0000;
+   --default-red:	#B22222;
 
    /*Font*/
    
 
    /* Usage */
-   --nav-bg-color: var(--default-red);
+   --nav-bg-color: var(--default-wine-1);
    --bg-color: white;
  }
