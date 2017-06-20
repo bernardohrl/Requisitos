@@ -19,8 +19,10 @@
    --default-wine-2: #8B0000;
    --default-red:	#B22222;
 
+   --button-bg-color: #7a3b2e;
+
    /*Font*/
-   
+
 
    /* Usage */
    --nav-bg-color: var(--default-wine-1);
