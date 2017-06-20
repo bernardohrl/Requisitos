@@ -1,11 +1,77 @@
-<%= bootstrap_form_for(@ocorrencia) do |f| %>
-  <%= f.date_field :data %>
-  <%= f.time_field :hora %>
-  <%= f.text_area :ocorrido %>
-  <%= f.text_area :procedimento %>
-  <%= f.text_area :sintomaApresentado, label: "Sintoma Apresentado" %>
-  <%= f.check_box :paisInformados, label: "Pais foram Informados?" %>
-  <%= f.submit "Criar Ocorrencia" %>
-  <%= link_to t('.cancel', :default => "Voltar"),
-            ocorrencias_path, :class => 'btn btn-default' %>
+<%= form_for @ocorrencia, :html => { :class => "form-horizontal ocorrencia" } do |f| %>
+
+  <% if @ocorrencia.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@ocorrencia.errors.count, "error") %> prohibited this ocorrencia from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @Ocorrencia.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :data, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.date_field :data, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:data) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :hora, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.time_select :hora, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:hora) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :ocorrido, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_area :ocorrido, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:ocorrido) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :procedimento, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_area :procedimento, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:procedimento) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :sintomaApresentado, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_area :sintomaApresentado, placeholder: "Sintoma Apresentado", :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:sintomaApresentado) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :paisInformados, :class => 'control-label col-lg-2'%>
+    <div class="radio">
+ 		<label class="radio-custom" data-initialize="radio" id="myCustomRadioLabel">
+    		<input value="0" name="ocorrencia[paisInformados]" id="ocorrencia_paisInformados" type="radio">Não
+  		</label>
+	</div>
+
+	<div class="radio checked">
+  		<label class="radio-custom" data-initialize="radio" id="myCustomRadioLabel2">
+    		<input value="1" name="ocorrencia[paisInformados]" id="ocorrencia_paisInformados" type="radio">Sim
+  		</label>
+	</div>
+    <%=f.error_span(:paisInformados) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => "Voltar"),
+                ocorrencias_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
 <% end %>

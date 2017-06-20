@@ -1,33 +1,21 @@
-
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-              <title>Ocorrências</title>
-              <meta charset="utf-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1">
-              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-            </head>
-            <body>
             <%- model_class = Ocorrencia -%>
+            <div class="page-header">
+              <h1> Ocorrências </h1>
+            </div>
 
-            <div class="container">
-              <h2>Ocorrências</h2>
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th> ID </th>
-                    <th>Data</th>
-                    <th>Hora</th>
-                    <th>Ocorrido</th>
-                    <th>Procedimento</th>
-                    <th>Sintoma Aprensentado</th>
-                    <th>Pais informados</th>
+                    <th><%= "ID" %></th>
+                    <th><%= "Data" %></th>
+                    <th><%= "Hora" %></th>
+                    <th><%= "Ocorrido" %></th>
+                    <th><%= "Procedimento" %></th>
+                    <th><%= "Sintoma Aprensentado" %></th>
+                    <th><%= "Pais informados" %></th>
                   </tr>
                 </thead>
                 <tbody>
-                <thead>
                     <% @ocorrencias.each do |ocorrencia| %>
 
                     <td><%= link_to ocorrencia.id, ocorrencia_path(ocorrencia) %></td>
@@ -37,30 +25,15 @@
                     <td><%= ocorrencia.procedimento %></td>
                     <td><%= ocorrencia.sintomaApresentado %></td>
                     <td><%= ocorrencia.paisInformados %></td>
-                    <td>
-                    <%= link_to t('.show', :default => t("helpers.links.show")),
-                                ocorrencia_path(ocorrencia), :class => 'btn btn-default btn-xs' %>
-                    <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                                edit_ocorrencia_path(ocorrencia), :class => 'btn btn-default btn-xs' %>
-                    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                                ocorrencia_path(ocorrencia),
-                                :method => :delete,
-                                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Tem certeza?')) },
-                                :class => 'btn btn-xs btn-danger' %>
-                  </td>
+                    <td><%= link_to "Visualizar", ocorrencia_path(ocorrencia), :class => 'btn btn-default btn-xs' %></td>
                   </tr>
-
-                </thead>
 
                   <% end %>
                 </tbody>
               </table>
 
-              <%= link_to t('.new', :default => t("helpers.links.new")),
-                          new_ocorrencia_path,
-                          :class => 'btn btn-primary' %>
+              <div class="botao_adicao">
+              </div>
 
-            </div>
-
-            </body>
-            </html>
+              <%= link_to "Novo", new_ocorrencia_path, :class => 'btn btn-primary' %>
+              <%= link_to "Voltar", home_path, :class => 'btn btn-primary' %>
