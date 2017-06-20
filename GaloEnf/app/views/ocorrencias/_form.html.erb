@@ -49,20 +49,34 @@
       <%= f.text_area :sintomaApresentado, placeholder: "Sintoma Apresentado", :class => 'form-control' %>
     </div>
     <%=f.error_span(:sintomaApresentado) %>
+
   </div>
   <div class="form-group">
-    <%= f.label :paisInformados, :class => 'control-label col-lg-2'%>
-    <div class="radio">
- 		<label class="radio-custom" data-initialize="radio" id="myCustomRadioLabel">
-    		<input value="0" name="ocorrencia[paisInformados]" id="ocorrencia_paisInformados" type="radio">Não
-  		</label>
-	</div>
+    <%= f.label :paisInformados, :class => 'control-label col-lg-2'%>  
 
-	<div class="radio checked">
+    <div class="radio checked">
+ 		   <label class="radio-custom" data-initialize="radio" id="myCustomRadioLabel">
+
+      		<span style="margin-left:0.1em">
+            <input value="0" name="ocorrencia[paisInformados]" id="ocorrencia_paisInformados" type="radio">
+              Sim
+            </input>
+          </span>
+
+      		<span style="margin-left:2em">
+            <input value="1" name="ocorrencia[paisInformados]" id="ocorrencia_paisInformados" type="radio">
+            Não
+            </input>
+          </span>
+
+      </label>
+	 </div>
+
+<!-- 	<div class="radio checked">
   		<label class="radio-custom" data-initialize="radio" id="myCustomRadioLabel2">
     		<input value="1" name="ocorrencia[paisInformados]" id="ocorrencia_paisInformados" type="radio">Sim
   		</label>
-	</div>
+	</div> -->
     <%=f.error_span(:paisInformados) %>
   </div>
 
